@@ -1,4 +1,4 @@
-import { Signal } from '@/common/events/signal';
+import { Signal } from '../../src/common/events/signal';
 
 // Create a new signal
 const signal = new Signal<[string, number]>();

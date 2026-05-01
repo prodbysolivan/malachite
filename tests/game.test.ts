@@ -1,5 +1,5 @@
-import { Game } from '@/game';
-import { Module } from '@modules/module';
+import { Game } from '../src/game';
+import { Module } from '../src/modules/module';
 import { describe, expect, test } from 'bun:test';
 
 describe('Game Class', () => {

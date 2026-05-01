@@ -1,4 +1,4 @@
-import { Signal, type IReadOnlySignal } from '@/common/events/signal';
+import { Signal, type IReadOnlySignal } from '../../../../../common/events/signal';
 import { Key, type KeyAttributes } from './key';
 
 export interface DigitalKeyAttributes extends KeyAttributes {

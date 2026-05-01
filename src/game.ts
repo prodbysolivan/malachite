@@ -1,6 +1,6 @@
-import { Signal, type IReadOnlySignal } from '@common/events/signal';
-import type { IModuleDependency } from '@common/interfaces/moduleDependency';
-import type { Module } from '@modules/module';
+import { Signal, type IReadOnlySignal } from './common/events/signal';
+import type { IModuleDependency } from './common/interfaces/moduleDependency';
+import type { Module } from './modules/module';
 
 export interface GameAttributes {
     name: string;

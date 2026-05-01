@@ -1,7 +1,7 @@
-import { Game } from '@/game';
-import { ModuleState } from '@modules/module';
-import { Channel } from '@modules/scheduler/other/channel';
-import { Scheduler } from '@modules/scheduler/scheduler';
+import { Game } from '../../src/game';
+import { ModuleState } from '../../src/modules/module';
+import { Channel } from '../../src/modules/scheduler/other/channel';
+import { Scheduler } from '../../src/modules/scheduler/scheduler';
 import { beforeEach, describe, expect, test } from 'bun:test';
 
 global.performance = { now: () => Date.now() } as any;

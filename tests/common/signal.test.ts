@@ -1,4 +1,4 @@
-import { Signal } from '@common/events/signal';
+import { Signal } from '../../src/common/events/signal';
 import { describe, expect, mock, test } from 'bun:test';
 
 describe('Signal Class', () => {

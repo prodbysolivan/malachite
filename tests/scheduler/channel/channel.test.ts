@@ -1,5 +1,5 @@
-import type { IUpdatable } from '@/common/interfaces/updatable';
-import { Channel } from '@modules/scheduler/other/channel';
+import type { IUpdatable } from '../../../src/common/interfaces/updatable';
+import { Channel } from '../../../src/modules/scheduler/other/channel';
 import { describe, expect, test } from 'bun:test';
 
 describe('Scheduler: Channel', () => {

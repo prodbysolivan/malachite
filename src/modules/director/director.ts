@@ -1,5 +1,5 @@
-import type { Game } from '@/game';
-import { Module, type ModuleAttributes } from '@modules/module';
+import type { Game } from '../../game';
+import { Module, type ModuleAttributes } from '../module';
 import type { Scene } from './other/scene';
 
 export interface DirectorAttributes extends ModuleAttributes {

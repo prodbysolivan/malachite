@@ -1,4 +1,4 @@
-import { Game } from '@/game';
+import { Game } from '../../src/game';
 
 // Create a new game instance with the specified attributes
 const game = new Game({

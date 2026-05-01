@@ -1,5 +1,5 @@
-import { Game } from '@/game';
-import { Module, type ModuleAttributes } from '@/modules/module';
+import { Game } from '../../../src/game';
+import { Module, type ModuleAttributes } from '../../../src/modules/module';
 
 // Define the attributes for the custom module, extending the base ModuleAttributes
 export interface CustomModuleAttributes extends ModuleAttributes {

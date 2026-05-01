@@ -1,6 +1,6 @@
-import { Standard } from '@modules/controller/other/devices/keyboard/components/standard';
-import { Keyboard } from '@modules/controller/other/devices/keyboard/keyboard';
-import { DigitalKey } from '@modules/controller/other/devices/other/digitalKey';
+import { Standard } from '../../../src/modules/controller/other/devices/keyboard/components/standard';
+import { Keyboard } from '../../../src/modules/controller/other/devices/keyboard/keyboard';
+import { DigitalKey } from '../../../src/modules/controller/other/devices/other/digitalKey';
 import { beforeEach, describe, expect, test } from 'bun:test';
 
 const listeners: Record<string, Function[]> = {};

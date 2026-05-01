@@ -10,11 +10,6 @@
         "allowJs": true,
 
         "baseUrl": ".",
-        "paths": {
-            "@/*": ["src/*"],
-            "@common/*": ["src/common/*"],
-            "@modules/*": ["src/modules/*"]
-        },
 
         "allowImportingTsExtensions": true,
         "verbatimModuleSyntax": true,

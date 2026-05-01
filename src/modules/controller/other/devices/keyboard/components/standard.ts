@@ -1,5 +1,5 @@
-import { Component } from '@modules/controller/other/devices/other/component';
-import { DigitalKey } from '@modules/controller/other/devices/other/digitalKey';
+import { Component } from '../../other/component';
+import { DigitalKey } from '../../other/digitalKey';
 
 export class Standard extends Component {
     // Lifecycle

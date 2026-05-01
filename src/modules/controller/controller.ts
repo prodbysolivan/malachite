@@ -1,5 +1,5 @@
-import type { Game } from '@/game';
-import { Module } from '@modules/module';
+import type { Game } from '../../game';
+import { Module } from '../module';
 import type { Device } from './other/devices/device';
 
 export interface ControllerAttributes {

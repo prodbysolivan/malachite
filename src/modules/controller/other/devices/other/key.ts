@@ -1,5 +1,5 @@
-import { Signal, type IReadOnlySignal } from '@/common/events/signal';
-import type { IUpdatable } from '@/common/interfaces/updatable';
+import { Signal, type IReadOnlySignal } from '../../../../../common/events/signal';
+import type { IUpdatable } from '../../../../../common/interfaces/updatable';
 
 export interface KeyAttributes {
     id: string;

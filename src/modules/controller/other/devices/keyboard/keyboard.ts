@@ -1,4 +1,4 @@
-import { Standard } from '@modules/controller/other/devices/keyboard/components/standard';
+import { Standard } from './components/standard';
 import { Device } from '../device';
 
 export class Keyboard extends Device {

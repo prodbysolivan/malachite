@@ -1,10 +1,10 @@
-import { Game } from '@/game';
-import { Controller } from '@modules/controller/controller';
-import { Standard } from '@modules/controller/other/devices/keyboard/components/standard';
-import { Keyboard } from '@modules/controller/other/devices/keyboard/keyboard';
-import { DigitalKey } from '@modules/controller/other/devices/other/digitalKey';
-import { Channel } from '@modules/scheduler/other/channel';
-import { Scheduler } from '@modules/scheduler/scheduler';
+import { Game } from './src/game';
+import { Controller } from './src/modules/controller/controller';
+import { Standard } from './src/modules/controller/other/devices/keyboard/components/standard';
+import { Keyboard } from './src/modules/controller/other/devices/keyboard/keyboard';
+import { DigitalKey } from './src/modules/controller/other/devices/other/digitalKey';
+import { Channel } from './src/modules/scheduler/other/channel';
+import { Scheduler } from './src/modules/scheduler/scheduler';
 
 const game = new Game({ name: 'Malachite Engine', version: '0.0.1' });
 

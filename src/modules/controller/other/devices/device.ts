@@ -1,6 +1,6 @@
-import { Signal, type IReadOnlySignal } from '@/common/events/signal';
-import type { IUpdatable } from '@/common/interfaces/updatable';
-import type { Component } from '@modules/controller/other/devices/other/component';
+import { Signal, type IReadOnlySignal } from '../../../../common/events/signal';
+import type { IUpdatable } from '../../../../common/interfaces/updatable';
+import type { Component } from './other/component';
 
 export interface DeviceAttributes {
     id: string;

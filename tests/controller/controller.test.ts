@@ -1,7 +1,7 @@
-import { Game } from '@/game';
-import { Controller } from '@modules/controller/controller';
-import { Device } from '@modules/controller/other/devices/device';
-import { ModuleState } from '@modules/module';
+import { Game } from '../../src/game';
+import { Controller } from '../../src/modules/controller/controller';
+import { Device } from '../../src/modules/controller/other/devices/device';
+import { ModuleState } from '../../src/modules/module';
 import { beforeEach, describe, expect, test } from 'bun:test';
 
 describe('Controller Module', () => {

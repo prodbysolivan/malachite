@@ -1,4 +1,4 @@
-import type { Game } from '@/game';
+import type { Game } from '../../game';
 import { Module, ModuleState } from '../module';
 import type { Channel } from './other/channel';
 

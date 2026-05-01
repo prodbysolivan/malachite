@@ -1,4 +1,4 @@
-import { Signal, type IReadOnlySignal } from '@/common/events/signal';
+import { Signal, type IReadOnlySignal } from '../../src/common/events/signal';
 
 // Create a new signal and expose it as a read-only signal
 const _signal = new Signal<[string]>();

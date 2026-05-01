@@ -1,7 +1,7 @@
-import type { IModuleDependency } from '@/common/interfaces/moduleDependency';
-import type { Game } from '@/game';
-import { Signal, type IReadOnlySignal } from '@common/events/signal';
-import type { IUpdatable } from '@common/interfaces/updatable';
+import type { IModuleDependency } from '../common/interfaces/moduleDependency';
+import type { Game } from '../game';
+import { Signal, type IReadOnlySignal } from '../common/events/signal';
+import type { IUpdatable } from '../common/interfaces/updatable';
 
 export interface ModuleAttributes {
     parent: Game;
