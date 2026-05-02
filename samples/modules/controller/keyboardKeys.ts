@@ -14,11 +14,11 @@ const game = new Game({
 const controller = new Controller({ parent: game });
 
 // Create a new keyboard instance and add it to the controller
-const keyboard = new Keyboard({});
+const keyboard = new Keyboard();
 controller.addToDevices(keyboard);
 
 // Create a new standard component and add it to the keyboard
-const standard = new Standard({});
+const standard = new Standard();
 keyboard.addToComponents(standard);
 
 // Create a new digital key instance

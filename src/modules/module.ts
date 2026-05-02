@@ -1,7 +1,7 @@
+import { Signal, type ExposedSignal } from '../common/events/signal';
 import type { IModuleDependency } from '../common/interfaces/moduleDependency';
-import type { Game } from '../game';
-import { Signal, type IReadOnlySignal } from '../common/events/signal';
 import type { IUpdatable } from '../common/interfaces/updatable';
+import type { Game } from '../game';
 
 export interface ModuleAttributes {
     parent: Game;
@@ -37,11 +37,11 @@ export class Module implements IUpdatable {
 
     // Signals
     private readonly _onStart: Signal<[]> = new Signal();
-    public readonly onStart: IReadOnlySignal<[]> = this._onStart.public;
+    public readonly onStart: ExposedSignal<[]> = this._onStart.exposed;
     private readonly _onStop: Signal<[]> = new Signal();
-    public readonly onStop: IReadOnlySignal<[]> = this._onStop.public;
+    public readonly onStop: ExposedSignal<[]> = this._onStop.exposed;
     private readonly _onUpdate: Signal<[number]> = new Signal();
-    public readonly onUpdate: IReadOnlySignal<[number]> = this._onUpdate.public;
+    public readonly onUpdate: ExposedSignal<[number]> = this._onUpdate.exposed;
 
     constructor(attributes: ModuleAttributes) {
         this.parent = attributes.parent;
@@ -66,7 +66,7 @@ export class Module implements IUpdatable {
         this._onUpdate.fire(deltaTime);
     }
 
-    public start(): ModuleState | null {
+    public start(): ModuleState {
         if (this._state !== ModuleState.Idle && this._state !== ModuleState.Starting) {
             throw new Error(`Cannot start module while in state ${ModuleState[this._state]}`);
         }
@@ -82,7 +82,7 @@ export class Module implements IUpdatable {
         }
     }
 
-    public stop(): ModuleState | null {
+    public stop(): ModuleState {
         if (this._state !== ModuleState.Running && this._state !== ModuleState.Stopping) {
             throw new Error(`Cannot stop module while in state ${ModuleState[this._state]}`);
         }

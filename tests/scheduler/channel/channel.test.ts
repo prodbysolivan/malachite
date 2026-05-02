@@ -1,11 +1,11 @@
+import { describe, expect, test } from 'bun:test';
 import type { IUpdatable } from '../../../src/common/interfaces/updatable';
 import { Channel } from '../../../src/modules/scheduler/other/channel';
-import { describe, expect, test } from 'bun:test';
 
 describe('Scheduler: Channel', () => {
     describe('Entries Management', () => {
         test('should add and store updatable entries', () => {
-            const channel = new Channel({ name: 'Physics' });
+            const channel = new Channel({ id: 'physics' });
             const entry: IUpdatable = { update: () => {} };
 
             channel.addToEntries(entry);
@@ -14,7 +14,7 @@ describe('Scheduler: Channel', () => {
         });
 
         test('should remove entries from the list', () => {
-            const channel = new Channel({ name: 'Graphics' });
+            const channel = new Channel({ id: 'graphics' });
             const entry: IUpdatable = { update: () => {} };
 
             channel.addToEntries(entry);
@@ -25,7 +25,7 @@ describe('Scheduler: Channel', () => {
 
     describe('Execution & Framerate Logic', () => {
         test('should update all entries when enabled', () => {
-            const channel = new Channel({ name: 'Logic', framerate: 0 });
+            const channel = new Channel({ id: 'logic', framerate: 0 });
             let updated = false;
             const entry: IUpdatable = {
                 update: () => {
@@ -39,7 +39,7 @@ describe('Scheduler: Channel', () => {
         });
 
         test('should not update entries when disabled', () => {
-            const channel = new Channel({ name: 'Silent', framerate: 0 });
+            const channel = new Channel({ id: 'silent', framerate: 0 });
             let updated = false;
             const entry: IUpdatable = {
                 update: () => {
@@ -55,7 +55,7 @@ describe('Scheduler: Channel', () => {
 
         test('should respect fixed framerate using accumulator', () => {
             const framerate = 30;
-            const channel = new Channel({ name: 'Fixed', framerate });
+            const channel = new Channel({ id: 'fixed', framerate });
             let ticks = 0;
             const entry: IUpdatable = {
                 update: () => {
@@ -71,7 +71,7 @@ describe('Scheduler: Channel', () => {
         });
 
         test('should fire onUpdate signal with correct deltaTime', () => {
-            const channel = new Channel({ name: 'SignalTest', framerate: 0 });
+            const channel = new Channel({ id: 'signalTest', framerate: 0 });
             let capturedDt = 0;
 
             channel.onUpdate.connect((dt) => {
@@ -85,7 +85,7 @@ describe('Scheduler: Channel', () => {
 
     describe('Data Integrity', () => {
         test('entries property should return a ReadonlyArray', () => {
-            const channel = new Channel({ name: 'Strict' });
+            const channel = new Channel({ id: 'strict' });
             const entry: IUpdatable = { update: () => {} };
             channel.addToEntries(entry);
 
@@ -94,14 +94,14 @@ describe('Scheduler: Channel', () => {
         });
 
         test('should handle removal of non-existent entries gracefully', () => {
-            const channel = new Channel({ name: 'Safe' });
+            const channel = new Channel({ id: 'safe' });
             const entry = { update: () => {} };
 
             expect(() => channel.removeFromEntries(entry)).not.toThrow();
         });
 
         test('should cloned entries list during update to prevent concurrent modification errors', () => {
-            const channel = new Channel({ name: 'AtomicUpdate' });
+            const channel = new Channel({ id: 'atomicUpdate' });
             let callCount = 0;
 
             const entry: IUpdatable = {

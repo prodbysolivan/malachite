@@ -40,6 +40,7 @@ const game = new Game({
 // Create an instance of the custom module with the required attributes
 const customModule = new CustomModule({
     parent: game,
+    id: 'customModule',
     name: 'Custom Module',
     description: 'A custom module for demonstration purposes.',
     version: '1.0.0',

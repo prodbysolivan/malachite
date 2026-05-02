@@ -1,4 +1,4 @@
-import { Signal, type IReadOnlySignal } from '../../../../../common/events/signal';
+import { Signal, type ExposedSignal } from '../../../../../common/events/signal';
 import { Key, type KeyAttributes } from './key';
 
 export interface DigitalKeyAttributes extends KeyAttributes {
@@ -11,9 +11,9 @@ export class DigitalKey extends Key {
 
     // Signals
     private readonly _onPress: Signal<[]> = new Signal();
-    public readonly onPress: IReadOnlySignal<[]> = this._onPress.public;
+    public readonly onPress: ExposedSignal<[]> = this._onPress.exposed;
     private readonly _onRelease: Signal<[]> = new Signal();
-    public readonly onRelease: IReadOnlySignal<[]> = this._onRelease.public;
+    public readonly onRelease: ExposedSignal<[]> = this._onRelease.exposed;
 
     constructor(attributes: DigitalKeyAttributes) {
         super(attributes);

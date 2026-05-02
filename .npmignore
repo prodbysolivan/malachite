@@ -1,0 +1,9 @@
+src/
+tests/
+samples/
+tsconfig.json
+tsconfig.build.json
+eslint.config.mjs
+.prettierrc
+.vscode/
+bun.lock

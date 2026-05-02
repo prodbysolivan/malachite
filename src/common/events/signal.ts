@@ -4,7 +4,7 @@ export interface SignalConnection {
     disconnect(): void;
 }
 
-export interface IReadOnlySignal<T extends any[]> {
+export interface ExposedSignal<T extends any[]> {
     connect(listener: Listener<T>, persistent?: boolean): SignalConnection;
     once(listener: Listener<T>): SignalConnection;
     disconnect(listener: Listener<T>): void;
@@ -15,9 +15,9 @@ interface InternalConnection<T extends any[]> {
     persistent: boolean;
 }
 
-export class Signal<T extends any[] = []> implements IReadOnlySignal<T> {
+export class Signal<T extends any[] = []> implements ExposedSignal<T> {
     private _connections = new Set<InternalConnection<T>>();
-    public readonly public: IReadOnlySignal<T> = this;
+    public readonly exposed: ExposedSignal<T> = this;
 
     public connect(listener: Listener<T>, persistent: boolean = false): SignalConnection {
         const connection: InternalConnection<T> = { listener, persistent };
@@ -43,9 +43,9 @@ export class Signal<T extends any[] = []> implements IReadOnlySignal<T> {
     }
 
     public disconnect(listener: Listener<T>): void {
-        for (const conn of this._connections) {
-            if (conn.listener === listener) {
-                this._connections.delete(conn);
+        for (const connection of this._connections) {
+            if (connection.listener === listener) {
+                this._connections.delete(connection);
             }
         }
     }
@@ -61,15 +61,15 @@ export class Signal<T extends any[] = []> implements IReadOnlySignal<T> {
         });
 
         for (let i = sorted.length - 1; i >= 0; i--) {
-            const conn = sorted[i];
-            if (conn) conn.listener(...args);
+            const connection = sorted[i];
+            if (connection) connection.listener(...args);
         }
     }
 
     public clear(): void {
-        for (const conn of this._connections) {
-            if (!conn.persistent) {
-                this._connections.delete(conn);
+        for (const connection of this._connections) {
+            if (!connection.persistent) {
+                this._connections.delete(connection);
             }
         }
     }

@@ -1,5 +1,5 @@
+import { Signal, type ExposedSignal } from '../../../common/events/signal';
 import type { IUpdatable } from '../../../common/interfaces/updatable';
-import { Signal, type IReadOnlySignal } from '../../../common/events/signal';
 
 export interface ChannelAttributes {
     id: string;
@@ -22,7 +22,7 @@ export class Channel {
 
     // Signals
     private readonly _onUpdate: Signal<[number]> = new Signal();
-    public readonly onUpdate: IReadOnlySignal<[number]> = this._onUpdate.public;
+    public readonly onUpdate: ExposedSignal<[number]> = this._onUpdate.exposed;
 
     constructor(attributes: ChannelAttributes) {
         this.id = attributes.id;

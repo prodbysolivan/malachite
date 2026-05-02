@@ -1,4 +1,4 @@
-import { Signal, type IReadOnlySignal } from './common/events/signal';
+import { Signal, type ExposedSignal } from './common/events/signal';
 import type { IModuleDependency } from './common/interfaces/moduleDependency';
 import type { Module } from './modules/module';
 
@@ -26,9 +26,9 @@ export class Game {
 
     // Signals
     private readonly _onStart: Signal<[]> = new Signal();
-    public readonly onStart: IReadOnlySignal<[]> = this._onStart.public;
+    public readonly onStart: ExposedSignal<[]> = this._onStart.exposed;
     private readonly _onStop: Signal<[]> = new Signal();
-    public readonly onStop: IReadOnlySignal<[]> = this._onStop.public;
+    public readonly onStop: ExposedSignal<[]> = this._onStop.exposed;
 
     constructor(attributes: GameAttributes) {
         this.name = attributes.name ?? 'Game';
@@ -122,7 +122,7 @@ export class Game {
         return this.modules.some((module) => module.id === targetId);
     }
 
-    public start(): GameState | null {
+    public start(): GameState {
         if (this._state !== GameState.Idle) {
             throw new Error(`Cannot start game while in state ${GameState[this._state]}`);
         }
@@ -148,7 +148,7 @@ export class Game {
         }
     }
 
-    public stop(): GameState | null {
+    public stop(): GameState {
         if (this._state !== GameState.Running) {
             throw new Error(`Cannot stop game while in state ${GameState[this._state]}`);
         }

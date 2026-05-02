@@ -1,4 +1,4 @@
-import { Signal, type IReadOnlySignal } from '../../../../common/events/signal';
+import { Signal, type ExposedSignal } from '../../../../common/events/signal';
 import type { IUpdatable } from '../../../../common/interfaces/updatable';
 import type { Component } from './other/component';
 
@@ -21,11 +21,11 @@ export class Device implements IUpdatable {
 
     // Signals
     private readonly _onLoad: Signal<[]> = new Signal();
-    public readonly onLoad: IReadOnlySignal<[]> = this._onLoad.public;
+    public readonly onLoad: ExposedSignal<[]> = this._onLoad.exposed;
     private readonly _onUnLoad: Signal<[]> = new Signal();
-    public readonly onUnLoad: IReadOnlySignal<[]> = this._onUnLoad.public;
+    public readonly onUnLoad: ExposedSignal<[]> = this._onUnLoad.exposed;
     private readonly _onUpdate: Signal<[number]> = new Signal();
-    public readonly onUpdate: IReadOnlySignal<[number]> = this._onUpdate.public;
+    public readonly onUpdate: ExposedSignal<[number]> = this._onUpdate.exposed;
 
     constructor(attributes: DeviceAttributes) {
         this.id = attributes.id;
